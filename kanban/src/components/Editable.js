@@ -10,9 +10,11 @@ const Editable = ({editing, value, onEdit, className, ...props}) => {
       {...props} />;
   }
 
-  return <span className={classnames('value', className)} {...props}>
-    {value}
-  </span>;
+  return (
+    <div className={classnames('value', className)} {...props}>
+      {value}
+    </div>
+  );
 }
 
 const Edit = ({className, value, onEdit = () => {}, ...props}) => {
