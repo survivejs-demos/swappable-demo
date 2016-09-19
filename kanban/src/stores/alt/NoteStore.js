@@ -7,13 +7,13 @@ export default class NoteStore {
     this.notes = [];
   }
   create(note) {
-    this.setState({notes: this.notes.concat(note)});
+    this.setState({ notes: this.notes.concat(note) });
   }
   update(updatedNote) {
     this.setState({
       notes: this.notes.map(note => {
         if(note.id === updatedNote.id) {
-          return {...note, ...updatedNote};
+          return { ...note, ...updatedNote };
         }
 
         return note;

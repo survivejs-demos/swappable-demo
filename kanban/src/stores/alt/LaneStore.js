@@ -20,7 +20,7 @@ export default class LaneStore {
     this.setState({
       lanes: this.lanes.map(lane => {
         if(lane.id === updatedLane.id) {
-          return {...lane, ...updatedLane};
+          return { ...lane, ...updatedLane };
         }
 
         return lane;
@@ -82,6 +82,6 @@ export default class LaneStore {
       targetLane.notes.splice(targetNoteIndex, 0, sourceId);
     }
 
-    this.setState({lanes});
+    this.setState({ lanes });
   }
 }
