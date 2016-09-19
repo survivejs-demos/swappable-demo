@@ -15,6 +15,7 @@ if(process.env.NODE_ENV !== 'production') {
   React.Perf = require('react-addons-perf');
 }
 
+// TODO: pass redux store here
 ReactDOM.render(
   <Provider><App /></Provider>,
   document.getElementById('root')
