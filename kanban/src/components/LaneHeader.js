@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
-import connect from '../libs/connect';
+import connect from './connect';
 import NoteActions from '../actions/NoteActions';
 import LaneActions from '../actions/LaneActions';
 import Editable from './Editable';
