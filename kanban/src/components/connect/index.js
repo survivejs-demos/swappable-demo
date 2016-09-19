@@ -1,3 +1,3 @@
-import alt from './alt';
+import alt from './connect.alt';
 
 export default alt;
