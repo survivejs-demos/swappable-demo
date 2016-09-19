@@ -77,4 +77,4 @@ export default compose(
     NoteActions,
     LaneActions
   })
-)(Lane)
+)(Lane);

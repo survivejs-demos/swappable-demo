@@ -5,7 +5,7 @@ import NoteActions from '../actions/NoteActions';
 import LaneActions from '../actions/LaneActions';
 import Editable from './Editable';
 
-export default connect(() => ({}), {
+const LaneHeader = connect(() => ({}), {
   NoteActions,
   LaneActions
 })(({lane, LaneActions, NoteActions, ...props}) => {
@@ -58,3 +58,5 @@ export default connect(() => ({}), {
     </div>
   );
 });
+
+export default LaneHeader;

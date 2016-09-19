@@ -46,4 +46,4 @@ export default compose(
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver()
   }))
-)(Note)
+)(Note);

@@ -3,7 +3,7 @@ import Editable from './Editable';
 import Note from './Note';
 import LaneActions from '../actions/LaneActions';
 
-export default ({
+const Notes = ({
   notes,
   onNoteClick=() => {}, onEdit=() => {}, onDelete=() => {}
 }) => (
@@ -24,4 +24,6 @@ export default ({
       </Note>
     </li>
   )}</ul>
-)
+);
+
+export default Notes;
