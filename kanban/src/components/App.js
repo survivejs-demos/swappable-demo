@@ -1,18 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import uuid from 'uuid';
+import {compose} from 'redux';
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import connect from '../libs/connect';
+import Lanes from './Lanes';
+import LaneActions from '../actions/LaneActions';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = ({LaneActions, lanes}) => {
+  const addLane = () => {
+    LaneActions.create({
+      id: uuid.v4(),
+      name: 'New lane'
+    });
+  };
 
-export default App;
+  return (
+    <div>
+      <button className="add-lane" onClick={addLane}>+</button>
+      <Lanes lanes={lanes} />
+    </div>
+  );
+};
+
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect(({lanes}) => ({
+    lanes
+  }), {
+    LaneActions
+  })
+)(App)
