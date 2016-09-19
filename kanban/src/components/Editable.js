@@ -15,7 +15,7 @@ const Editable = ({editing, value, onEdit, className, ...props}) => {
       {value}
     </div>
   );
-}
+};
 
 const Edit = ({className, value, onEdit = () => {}, ...props}) => {
   const finishEdit = e => onEdit(e.target.value);
