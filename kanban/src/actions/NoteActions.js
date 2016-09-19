@@ -1,3 +1,3 @@
-import AltNoteActions from './alt/LaneActions';
+import alt from '../libs/alt';
 
-export default AltNoteActions;
+export default alt.generateActions('create', 'update', 'delete');
