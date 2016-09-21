@@ -20,23 +20,20 @@ export default function lanes(state = initialState, action) {
       });
 
     case types.DELETE_LANE:
-      return state.filter((lane) => lane.id !== action.id);
+      return state.filter(lane => lane.id !== action.id);
 
     case types.ATTACH_TO_LANE:
       const laneId = action.laneId;
       const noteId = action.noteId;
 
-      return state.map((lane) => {
-        const index = lane.notes.indexOf(noteId);
-
-        if (index >= 0) {
+      return state.map(lane => {
+        if (lane.notes.includes(noteId)) {
           return {
             ...lane,
-            notes: lane.notes.length > 1 ? lane.notes.slice(0, index).concat(
-              lane.notes.slice(index + 1)
-            ): []
+            notes: lane.notes.filter(note => note !== noteId)
           };
         }
+
         if (lane.id === laneId) {
           return {
             ...lane,
@@ -48,7 +45,7 @@ export default function lanes(state = initialState, action) {
       });
 
     case types.DETACH_FROM_LANE:
-      return state.map((lane) => {
+      return state.map(lane => {
         if (lane.id === action.laneId) {
           return {
             ...lane,
@@ -74,7 +71,7 @@ export default function lanes(state = initialState, action) {
       const targetNoteIndex = targetLane.notes.indexOf(targetId);
 
       if(sourceLane === targetLane) {
-        return state.map((lane) => {
+        return state.map(lane => {
           return lane.id === sourceLane.id ? {
             ...lane,
             notes: update(sourceLane.notes, {
@@ -87,7 +84,7 @@ export default function lanes(state = initialState, action) {
         });
       }
 
-      return state.map((lane) => {
+      return state.map(lane => {
         if(lane === sourceLane) {
           // get rid of the source note
           return {
