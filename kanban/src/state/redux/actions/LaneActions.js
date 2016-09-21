@@ -20,14 +20,14 @@ const deleteLane = id => ({
 });
 
 const ATTACH_TO_LANE = 'ATTACH_TO_LANE';
-const attachToLane = (laneId, noteId) => ({
+const attachToLane = ({ laneId, noteId }) => ({
   type: ATTACH_TO_LANE,
   laneId,
   noteId
 });
 
 const DETACH_FROM_LANE = 'DETACH_FROM_LANE';
-const detachFromLane = (laneId, noteId) => ({
+const detachFromLane = ({ laneId, noteId }) => ({
   type: DETACH_FROM_LANE,
   laneId,
   noteId
