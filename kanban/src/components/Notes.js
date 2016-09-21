@@ -2,9 +2,11 @@ import React from 'react';
 import Editable from './Editable';
 import Note from './Note';
 
+const noop = () => {};
+
 const Notes = ({
   notes,
-  onNoteClick = () => {}, onEdit = () => {}, onDelete = () => {}, onMove = () => {}
+  onNoteClick = noop, onEdit = noop, onDelete = noop, onMove = noop
 }) => (
   <ul className="notes">{
     notes.map(({ id, editing, task }) =>
