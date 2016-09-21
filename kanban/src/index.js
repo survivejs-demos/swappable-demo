@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import Provider from './components/Provider';
+import Provider from './state/Provider';
+import init from './state/init';
 import './main.css';
-import init from './init';
 
 init();
 

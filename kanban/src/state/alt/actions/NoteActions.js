@@ -1,3 +1,3 @@
-import alt from '../libs/alt';
+import alt from '../alt';
 
 export default alt.generateActions('create', 'update', 'delete');

@@ -1,7 +1,7 @@
 import React from 'react';
 import Editable from './Editable';
 import Note from './Note';
-import LaneActions from '../actions/LaneActions';
+import { LaneActions } from '../state/actions';
 
 const Notes = ({
   notes,

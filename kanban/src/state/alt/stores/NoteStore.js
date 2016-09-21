@@ -1,4 +1,4 @@
-import NoteActions from '../../actions/NoteActions';
+import NoteActions from '../actions/NoteActions';
 
 export default class NoteStore {
   constructor() {

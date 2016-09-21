@@ -1,6 +1,6 @@
-import AltProvider from './Provider.alt';
-import ReduxProvider from './Provider.redux';
-import env from '../../libs/env';
+import AltProvider from './alt/Provider';
+import ReduxProvider from './redux/Provider';
+import env from './env';
 
 export default (props) => {
   const providers = {

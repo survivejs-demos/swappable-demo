@@ -1,8 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
-import connect from './connect';
-import NoteActions from '../actions/NoteActions';
-import LaneActions from '../actions/LaneActions';
+import connect from '../state/connect';
+import { LaneActions, NoteActions } from '../state/actions';
 import Editable from './Editable';
 
 const LaneHeader = connect(() => ({}), {

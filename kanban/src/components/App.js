@@ -3,11 +3,11 @@ import uuid from 'uuid';
 import {compose} from 'redux';
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import connect from './connect';
+import connect from '../state/connect';
 import Lanes from './Lanes';
-import LaneActions from '../actions/LaneActions';
+import { LaneActions } from '../state/actions';
 
-const App = ({LaneActions, lanes}) => {
+const App = ({ LaneActions, lanes }) => {
   const addLane = () => {
     LaneActions.create({
       id: uuid.v4(),
@@ -25,9 +25,8 @@ const App = ({LaneActions, lanes}) => {
 
 export default compose(
   DragDropContext(HTML5Backend),
-  connect(({lanes}) => ({
-    lanes
-  }), {
-    LaneActions
-  })
+  connect(
+    ({ lanes }) => ({ lanes }),
+    { LaneActions }
+  )
 )(App);

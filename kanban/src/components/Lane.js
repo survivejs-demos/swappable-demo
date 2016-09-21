@@ -1,9 +1,8 @@
 import React from 'react';
 import {compose} from 'redux';
 import {DropTarget} from 'react-dnd';
-import connect from './connect';
-import NoteActions from '../actions/NoteActions';
-import LaneActions from '../actions/LaneActions';
+import connect from '../state/connect';
+import { LaneActions, NoteActions } from '../state/actions';
 import ItemTypes from '../constants/itemTypes';
 import Notes from './Notes';
 import LaneHeader from './LaneHeader';
