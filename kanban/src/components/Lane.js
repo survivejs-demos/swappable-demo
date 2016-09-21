@@ -34,7 +34,9 @@ const Lane = ({
         notes={selectNotesByIds(notes, lane.notes)}
         onNoteClick={activateNoteEdit}
         onEdit={editNote}
-        onDelete={deleteNote} />
+        onDelete={deleteNote}
+        onMove={LaneActions.move}
+      />
     </div>
   );
 };

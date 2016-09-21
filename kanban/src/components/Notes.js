@@ -1,19 +1,18 @@
 import React from 'react';
 import Editable from './Editable';
 import Note from './Note';
-import { LaneActions } from '../state/actions';
 
 const Notes = ({
   notes,
-  onNoteClick=() => {}, onEdit=() => {}, onDelete=() => {}
+  onNoteClick = () => {}, onEdit = () => {}, onDelete = () => {}, onMove = () => {}
 }) => (
   <ul className="notes">{
-    notes.map(({id, editing, task}) =>
+    notes.map(({ id, editing, task }) =>
       <li key={id}>
         <Note className="note" id={id}
           editing={editing}
           onClick={e => onNoteClick(id, e)}
-          onMove={LaneActions.move}>
+          onMove={onMove}>
           <Editable
             className="editable"
             editing={editing}
