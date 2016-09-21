@@ -19,7 +19,7 @@ export default class LaneStore {
   updateLane(updatedLane) {
     this.setState({
       lanes: this.lanes.map(lane => {
-        if(lane.id === updatedLane.id) {
+        if (lane.id === updatedLane.id) {
           return { ...lane, ...updatedLane };
         }
 
@@ -35,11 +35,11 @@ export default class LaneStore {
   attachToLane({laneId, noteId}) {
     this.setState({
       lanes: this.lanes.map(lane => {
-        if(lane.notes.includes(noteId)) {
+        if (lane.notes.includes(noteId)) {
           lane.notes = lane.notes.filter(note => note !== noteId);
         }
 
-        if(lane.id === laneId) {
+        if (lane.id === laneId) {
           lane.notes = lane.notes.concat([noteId]);
         }
 
@@ -50,7 +50,7 @@ export default class LaneStore {
   detachFromLane({laneId, noteId}) {
     this.setState({
       lanes: this.lanes.map(lane => {
-        if(lane.id === laneId) {
+        if (lane.id === laneId) {
           lane.notes = lane.notes.filter(note => note !== noteId);
         }
 
