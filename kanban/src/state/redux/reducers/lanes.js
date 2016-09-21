@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import * as types from '../actions/LaneActions';
+import types from '../actions/LaneActions';
 
 const initialState = [];
 
