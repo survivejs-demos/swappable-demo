@@ -59,7 +59,7 @@ export default function lanes(state = initialState, action) {
         return lane;
       });
 
-    case types.MOVE:
+    case types.MOVE_FROM_LANE_TO_LANE:
       const sourceId = action.sourceId;
       const targetId = action.targetId;
 

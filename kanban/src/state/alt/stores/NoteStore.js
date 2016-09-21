@@ -6,10 +6,10 @@ export default class NoteStore {
 
     this.notes = [];
   }
-  create(note) {
+  createNote(note) {
     this.setState({ notes: this.notes.concat(note) });
   }
-  update(updatedNote) {
+  updateNote(updatedNote) {
     this.setState({
       notes: this.notes.map(note => {
         if(note.id === updatedNote.id) {
@@ -20,7 +20,7 @@ export default class NoteStore {
       })
     });
   }
-  delete(id) {
+  deleteNote(id) {
     this.setState({
       notes: this.notes.filter(note => note.id !== id)
     });

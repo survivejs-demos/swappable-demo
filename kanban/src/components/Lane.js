@@ -8,23 +8,26 @@ import Notes from './Notes';
 import LaneHeader from './LaneHeader';
 
 const Lane = ({
-  connectDropTarget, lane, notes, LaneActions, NoteActions, ...props
+  connectDropTarget, lane, notes,
+  detachFromLane, moveFromLaneToLane,
+  updateNote, deleteNote,
+  ...props
 }) => {
   const editNote = (id, task) => {
-    NoteActions.update({id, task, editing: false});
+    updateNote({ id, task, editing: false });
   };
-  const deleteNote = (noteId, e) => {
+  const detachAndDelete = (noteId, e) => {
     // Avoid bubbling to edit
     e.stopPropagation();
 
-    LaneActions.detachFromLane({
+    detachFromLane({
       laneId: lane.id,
       noteId
     });
-    NoteActions.delete(noteId);
+    deleteNote(noteId);
   };
   const activateNoteEdit = id => {
-    NoteActions.update({id, editing: true});
+    updateNote({ id, editing: true });
   };
 
   return connectDropTarget(
@@ -34,8 +37,8 @@ const Lane = ({
         notes={selectNotesByIds(notes, lane.notes)}
         onNoteClick={activateNoteEdit}
         onEdit={editNote}
-        onDelete={deleteNote}
-        onMove={LaneActions.move}
+        onDelete={detachAndDelete}
+        onMove={moveFromLaneToLane}
       />
     </div>
   );
@@ -60,7 +63,7 @@ const noteTarget = {
     const sourceId = sourceProps.id;
 
     if(!targetProps.lane.notes.length) {
-      LaneActions.attachToLane({
+      sourceProps.attachToLane({
         laneId: targetProps.lane.id,
         noteId: sourceId
       });
@@ -75,7 +78,9 @@ export default compose(
   connect(({notes}) => ({
     notes
   }), {
-    NoteActions,
-    LaneActions
+    detachFromLane: LaneActions.detachFromLane,
+    moveFromLaneToLane: LaneActions.moveFromLaneToLane,
+    updateNote: NoteActions.updateNote,
+    deleteNote: NoteActions.deleteNote
   })
 )(Lane);

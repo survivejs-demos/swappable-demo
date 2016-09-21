@@ -7,7 +7,7 @@ export default class LaneStore {
 
     this.lanes = [];
   }
-  create(lane) {
+  createLane(lane) {
     // If `notes` aren't provided for some reason,
     // default to an empty array.
     lane.notes = lane.notes || [];
@@ -16,7 +16,7 @@ export default class LaneStore {
       lanes: this.lanes.concat(lane)
     });
   }
-  update(updatedLane) {
+  updateLane(updatedLane) {
     this.setState({
       lanes: this.lanes.map(lane => {
         if(lane.id === updatedLane.id) {
@@ -27,7 +27,7 @@ export default class LaneStore {
       })
     });
   }
-  delete(id) {
+  deleteLane(id) {
     this.setState({
       lanes: this.lanes.filter(lane => lane.id !== id)
     });
@@ -58,7 +58,7 @@ export default class LaneStore {
       })
     });
   }
-  move({sourceId, targetId}) {
+  moveFromLaneToLane({sourceId, targetId}) {
     const lanes = this.lanes;
     const sourceLane = lanes.filter(lane => lane.notes.includes(sourceId))[0];
     const targetLane = lanes.filter(lane => lane.notes.includes(targetId))[0];

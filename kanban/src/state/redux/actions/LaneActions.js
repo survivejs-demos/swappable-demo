@@ -33,9 +33,9 @@ const detachFromLane = (laneId, noteId) => ({
   noteId
 });
 
-const MOVE = 'MOVE';
-const move = ({sourceId, targetId}) => ({
-  type: MOVE,
+const MOVE_FROM_LANE_TO_LANE = 'MOVE_FROM_LANE_TO_LANE';
+const moveFromLaneToLane = ({sourceId, targetId}) => ({
+  type: MOVE_FROM_LANE_TO_LANE,
   sourceId,
   targetId
 });
@@ -51,6 +51,6 @@ export default {
   attachToLane,
   DETACH_FROM_LANE,
   detachFromLane,
-  MOVE,
-  move
+  MOVE_FROM_LANE_TO_LANE,
+  moveFromLaneToLane
 };

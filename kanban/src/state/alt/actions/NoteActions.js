@@ -1,3 +1,6 @@
 import alt from '../alt';
 
-export default alt.generateActions('create', 'update', 'delete');
+export default alt.generateActions(
+  'createNote', 'updateNote', 'deleteNote'
+);
+

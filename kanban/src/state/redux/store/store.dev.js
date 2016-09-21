@@ -1,10 +1,10 @@
 import { createStore } from 'redux';
 import rootReducer from '../reducers';
 
-let store = null;
+let sharedStore = null;
 
 function get() {
-  return store;
+  return sharedStore;
 }
 
 function init(initialState) {
@@ -18,6 +18,8 @@ function init(initialState) {
       store.replaceReducer(nextReducer);
     });
   }
+
+  sharedStore = store;
 
   return store;
 }

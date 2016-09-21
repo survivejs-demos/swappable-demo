@@ -1,8 +1,8 @@
-let env = 'alt';
+let sharedEnv = 'alt';
 
-const get = () => env;
+const get = () => sharedEnv;
 const set = e => {
-  env = e;
+  sharedEnv = e;
 };
 
 export default {
