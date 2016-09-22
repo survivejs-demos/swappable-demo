@@ -1,4 +1,4 @@
-import env from './env';
+import React from 'react';
 import connectAlt from './alt/connect';
 import connectRedux from './redux/connect';
 
@@ -7,7 +7,27 @@ export default (state, actions) => {
     alt: connectAlt,
     redux: connectRedux
   };
-  const currentEnv = env.get();
 
-  return connect[currentEnv](state, actions);
+  if (typeof state === 'function') {
+    return target => {
+      class EnvHandler extends React.Component {
+        render() {
+          return React.createElement(
+            connect['alt'](state, actions)(target),
+            this.props,
+            this.context
+          );
+        }
+      }
+      EnvHandler.contextTypes = {
+        env: React.PropTypes.string.isRequired
+      };
+
+      return EnvHandler;
+    }
+  }
+
+  return target => props => (
+    <target {...{...props, ...actions}} />
+  );
 }

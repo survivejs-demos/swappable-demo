@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Env from './components/Env';
 import App from './components/App';
-import Provider from './state/Provider';
 import init from './state/init';
 import './main.css';
 
@@ -12,6 +12,6 @@ if(process.env.NODE_ENV !== 'production') {
 }
 
 ReactDOM.render(
-  <Provider><App /></Provider>,
+  <Env><App /></Env>,
   document.getElementById('root')
 );
