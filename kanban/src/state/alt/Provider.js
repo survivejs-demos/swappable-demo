@@ -7,5 +7,6 @@ const AltProvider = ({ children }) => (
     {children}
   </AltContainer>
 );
+AltProvider.childContextTypes = AltContainer.childContextTypes;
 
 export default AltProvider;

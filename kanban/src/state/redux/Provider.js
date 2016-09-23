@@ -7,5 +7,6 @@ const ReduxProvider = ({ children }) => (
     {children}
   </Provider>
 );
+ReduxProvider.childContextTypes = Provider.childContextTypes;
 
 export default ReduxProvider;
