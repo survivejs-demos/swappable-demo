@@ -9,12 +9,7 @@ class Env extends React.Component {
     env: environment.get()
   }
   getChildContext() {
-    console.log('get child context', {
-      env: this.state.env
-    });
-    return {
-      env: this.state.env
-    };
+    return { env: this.state.env };
   }
   render() {
     return (
