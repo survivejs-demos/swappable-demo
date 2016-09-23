@@ -2,7 +2,7 @@ import AltProvider from './alt/Provider';
 import ReduxProvider from './redux/Provider';
 
 // TODO: wrap and aggregate childContextTypes
-export default ({ env, ...props }) => {
+const Provider = ({ env, ...props }) => {
   const providers = {
     alt: AltProvider,
     redux: ReduxProvider
@@ -10,3 +10,5 @@ export default ({ env, ...props }) => {
 
   return providers[env](props);
 };
+
+export default Provider;
