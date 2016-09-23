@@ -13,7 +13,7 @@ export default (state, actions) => {
       class EnvHandler extends React.Component {
         render() {
           return React.createElement(
-            connect['alt'](state, actions)(target),
+            connect[this.context.env](state, actions)(target),
             this.props,
             this.context
           );
@@ -28,6 +28,6 @@ export default (state, actions) => {
   }
 
   return target => props => (
-    <target {...{...props, ...actions}} />
+    <target { ...{ ...props, ...actions } } />
   );
 }
