@@ -1,7 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 
-const Editable = ({editing, value, onEdit, className, ...props}) => {
+const Editable = ({
+  editing, value, onEdit, className, ...props
+}) => {
   if(editing) {
     return <Edit
       className={className}
@@ -17,7 +19,9 @@ const Editable = ({editing, value, onEdit, className, ...props}) => {
   );
 };
 
-const Edit = ({className, value, onEdit = () => {}, ...props}) => {
+const Edit = ({
+  className, value, onEdit = () => {}, ...props
+}) => {
   const finishEdit = e => onEdit(e.target.value);
   const checkEnter = e => e.key === 'Enter' && finishEdit(e);
 
